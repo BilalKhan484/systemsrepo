@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ app_name }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='styles.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <div class="brand">
+                <span class="brand-icon">⚡</span>
+                <span>CI/CD Dashboard</span>
+            </div>
+
+            <p class="subtitle">
+                Automated application deployment
+            </p>
+        </div>
+
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            HEALTHY
+        </div>
+    </header>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                DEPLOYMENT STATUS
+            </div>
+
+            <h1>
+                Deployment Successful
+            </h1>
+
+            <p>
+                Your application is running successfully inside
+                a Docker container.
+            </p>
+
+            <a href="/health" class="button">
+                Check Health
+                <span>→</span>
+            </a>
+
+        </div>
+
+        <div class="rocket">
+            🚀
+        </div>
+
+    </section>
+
+
+    <!-- Status Cards -->
+    <section class="cards">
+
+        <div class="card">
+            <div class="card-icon">✓</div>
+
+            <div>
+                <p class="card-label">APPLICATION</p>
+                <h3>Running</h3>
+                <span>Flask</span>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">✓</div>
+
+            <div>
+                <p class="card-label">CONTAINER</p>
+                <h3>Running</h3>
+                <span>Docker</span>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">✓</div>
+
+            <div>
+                <p class="card-label">ENVIRONMENT</p>
+                <h3>{{ environment }}</h3>
+                <span>Deployment environment</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Deployment Information -->
+    <section class="panel">
+
+        <div class="panel-header">
+            <div>
+                <p class="eyebrow">APPLICATION</p>
+                <h2>Deployment Information</h2>
+            </div>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-item">
+                <span>Application</span>
+                <strong>{{ app_name }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Version</span>
+                <strong>{{ version }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Environment</span>
+                <strong>{{ environment }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Commit</span>
+                <strong class="commit">{{ commit }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Deployed</span>
+                <strong>{{ deployed_at }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Platform</span>
+                <strong>Docker / Flask</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Pipeline -->
+    <section class="panel">
+
+        <div class="panel-header">
+            <div>
+                <p class="eyebrow">AUTOMATION</p>
+                <h2>CI/CD Pipeline</h2>
+            </div>
+
+            <span class="pipeline-status">
+                PIPELINE ACTIVE
+            </span>
+        </div>
+
+
+        <div class="pipeline">
+
+            <div class="pipeline-step">
+                <div class="pipeline-circle">✓</div>
+                <div>
+                    <strong>Code pushed</strong>
+                    <span>GitHub</span>
+                </div>
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+                <div class="pipeline-circle">✓</div>
+                <div>
+                    <strong>Tests passed</strong>
+                    <span>pytest</span>
+                </div>
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+                <div class="pipeline-circle">✓</div>
+                <div>
+                    <strong>Image built</strong>
+                    <span>Docker</span>
+                </div>
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+                <div class="pipeline-circle">✓</div>
+                <div>
+                    <strong>Deployed</strong>
+                    <span>EC2</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <span>CI/CD Demo Project</span>
+        <span>•</span>
+        <span>Built with Flask & Docker</span>
+    </footer>
+
+</div>
+
+</body>
+</html>
