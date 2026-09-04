@@ -56,17 +56,17 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t $myproject:$IMAGE_TAG \
-            -t $myproject:latest \
+            -t $IMAGE_NAME:$IMAGE_TAG \
+            -t $IMAGE_NAME:latest \
             ./myproject
 
       - name: Push versioned image
         run: |
-          docker push $myproject:$IMAGE_TAG
+          docker push $IMAGE_NAME:$IMAGE_TAG
 
       - name: Push latest image
         run: |
-          docker push $myproject:latest
+          docker push $IMAGE_NAME:latest
 
   deploy:
     name: Deploy to EC2
