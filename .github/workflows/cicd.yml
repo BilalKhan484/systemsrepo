@@ -34,7 +34,7 @@ jobs:
         run: |
           pytest
 
-    docker:
+  docker:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
     needs: test
